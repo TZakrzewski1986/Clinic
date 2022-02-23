@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Clinic App</title>
+    <meta charset="ISO-8859-1">
+    <title>Klinika</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>
-    Witaj w klinice
+<div class="container text-center">
+    <h1>Witaj w klinice</h1>
+    <h3> <a th:href="@{/login}"> LOGOWANIE </a><br/> </h3>
+    <h3> <a th:href="@{/registration}"> REJESTRACJA </a> </h3>
 
-</h1>
+    <p> Kliknij <a th:href="@{/secured}">tutaj</a> , aby zobaczy? zabezpieczon? stron? </p>
 
-
-
-<p> Kliknij <a href="/secured">tutaj</a> , aby zobaczyć zabezpieczoną stronę </p>
+</div>
 </body>
 </html>

@@ -1,18 +1,33 @@
 package clinic_app;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.validation.constraints.NotNull;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @Size(min = 5, message = "Login musi składać się z przynajmniej 5 znaków")
     private String username;
+    @NotNull
+    @Size(min = 5, message = "Hasło musi się składać z przynajmniej 5 znaków")
     private String password;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
 
     public User(){}
@@ -32,6 +47,7 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getUsername() {
         return username;
     }
@@ -63,4 +79,5 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 }
